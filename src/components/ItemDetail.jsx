@@ -16,14 +16,14 @@ function ItemDetail() {
                     {/* Product details */}
                     <div className="col-8">
                         <Card>
-                            <h2>{product.title}</h2>
+                            <h2 className="ms-5">{product.title}</h2>
                             <hr />
                             <div className="row d-flex">
                                 <div className="col-4">
-                                    <img src={product.image} width="80%" alt={product.title} />
+                                    <img className="m-5" src={product.image} width="80%" alt={product.title} />
                                 </div>
                                 <div className="col-8">
-                                    <p>{product.description}</p>
+                                    <p className="mt-5">{product.description}</p>
                                     <p>Price: ${product.price}</p>
                                     <p>Available Sizes: 
                                         <ul>
@@ -34,7 +34,7 @@ function ItemDetail() {
                                     </p>
                                     <div className="d-flex">
                                         <button className="btn btn-warning" onClick={()=>dispatch(addToCart(product))}>Add to Cart</button>
-                                        <button className="ms-2 btn btn-info"> <Link to="/products" style={{textDecoration: "none", color: "black"}}>Back to Products</Link> </button>
+                                        <button className="ms-2 btn btn-success"> <Link to="/products" style={{textDecoration: "none", color: "black"}}>Back to Products</Link> </button>
                                     </div>
                                     
                                 </div>
