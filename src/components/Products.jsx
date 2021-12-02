@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import { formatCurrency } from './utils';
 import Fade from 'react-reveal/Fade';
 import CartItems from './CartItems';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const dispatch = useDispatch();

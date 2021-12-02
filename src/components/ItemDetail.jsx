@@ -34,7 +34,7 @@ function ItemDetail() {
                                     </p>
                                     <div className="d-flex">
                                         <button className="btn btn-warning" onClick={()=>dispatch(addToCart(product))}>Add to Cart</button>
-                                        <button className="ms-2 btn btn-success"> <Link to="/products" style={{textDecoration: "none", color: "black"}}>Back to Products</Link> </button>
+                                        <button className="ms-2 btn btn-success"> <Link to="/products" style={{textDecoration: "none", color: "white"}}>Back to Products</Link> </button>
                                     </div>
                                     
                                 </div>

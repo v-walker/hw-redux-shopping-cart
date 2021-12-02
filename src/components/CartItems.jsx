@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { formatCurrency } from './utils';
 import Fade from 'react-reveal/Fade';
 import { deleteItem, saveItem, addBack } from '../actions/cartActions';
+import { Link } from 'react-router-dom';
 
 const CartItems = () => {
   const dispatch = useDispatch()
   const cartItems = useSelector(state => state.cartCRD.cartItems);
   const numberOfItems = useSelector(state => state.cartCRD.numberOfItems);
   const totalCost = useSelector(state => state.cartCRD.totalCost);
-  const savedItems = useSelector(state => state.cartCRD.savedItems)
+  const savedItems = useSelector(state => state.cartCRD.savedItems);
   
   return (
     <>
@@ -21,6 +22,8 @@ const CartItems = () => {
           : <div>You have {numberOfItems} items in your cart
             <br />
             Total Cost: {formatCurrency(totalCost)}
+            <br />
+            <button className="btn btn-success"><Link to="/checkout" style={{textDecoration: "none", color: "white"}}>Proceed to checkout</Link></button>
             </div>
         }
       </div>
