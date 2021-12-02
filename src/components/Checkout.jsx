@@ -28,7 +28,7 @@ function Checkout() {
                     </div>
                 }
             </div>
-
+            <button className="btn btn-primary"><Link to="/products" style={{textDecoration: "none", color: "white"}}>Back to products</Link></button>
             <hr />
 
             <Fade left cascade>
