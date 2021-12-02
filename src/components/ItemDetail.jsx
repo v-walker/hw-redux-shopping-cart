@@ -1,22 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import Card from 'react-bootstrap/Card';
+import { addToCart } from '../actions/cartActions';
+import CartItems from './CartItems';
 
 function ItemDetail() {
-    const { id } = useParams();
-    const products = useSelector(state => state.productsCRD.products);
-    const [product, setProduct] = useState({});
-    
-    useEffect(() => {
-        setProduct(products.find(product => product.id === id))
-    }, [])
-
-    console.log(product);
+    const product = useSelector(state => state.productsCRD.product);
+    const dispatch = useDispatch();
     
     return (
         <>
-            Details 
-            {product.title}
+            <div className="container">
+                <div className="row">
+                    {/* Product details */}
+                    <div className="col-8">
+                        <Card>
+                            <h2>{product.title}</h2>
+                            <hr />
+                            <div className="row d-flex">
+                                <div className="col-4">
+                                    <img src={product.image} width="80%" alt={product.title} />
+                                </div>
+                                <div className="col-8">
+                                    <p>{product.description}</p>
+                                    <p>Price: ${product.price}</p>
+                                    <p>Available Sizes: 
+                                        <ul>
+                                            {product.availableSizes.map((size, index) => {
+                                                return <li key={index}>{size}</li>
+                                            })}
+                                        </ul>
+                                    </p>
+                                    <div className="d-flex">
+                                        <button className="btn btn-warning" onClick={()=>dispatch(addToCart(product))}>Add to Cart</button>
+                                        <button className="ms-2 btn btn-info"> <Link to="/products" style={{textDecoration: "none", color: "black"}}>Back to Products</Link> </button>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </Card>
+                    </div>
+                    {/* Cart */}
+                    <div className="col-4">
+                        <CartItems />
+                    </div>
+                </div>
+            </div>
+            
+
+
         </>
     )
 }

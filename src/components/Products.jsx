@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react';
-import { loadProducts } from '../actions/productActions';
+import { loadProducts, setProduct } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from 'react-bootstrap/Card';
@@ -33,8 +33,8 @@ const Products = () => {
                 return (
                   <div key={product.id} className="col-4 mb-5 product">
                     <Card>
-                      <Link to={`/products/details/${product.id}`}>
-                        <img className="" src={product.image} alt={product.title} />
+                      <Link to={`/products/details/${product.id}`} onClick={() => dispatch(setProduct(product.id))}>
+                        <img src={product.image} alt={product.title} />
                         <p className="pt-3">{product.title}</p>
                       </Link>
 

@@ -1,10 +1,11 @@
-import { LOAD_PRODUCTS } from "../actions/types" 
+import { LOAD_PRODUCTS, SET_PRODUCT } from "../actions/types" 
 
 const productsReducer = (state, action) => {
     
     if (state === undefined) {
         state = {
-            products: []
+            products: [],
+            product: {}
         }
     }
 
@@ -13,6 +14,11 @@ const productsReducer = (state, action) => {
             return {
                 ...state,
                 products: action.products
+            }
+        case SET_PRODUCT:
+            return {
+                ...state,
+                product: state.products.find(product => product.id === action.id)
             }
         default:
             return state
