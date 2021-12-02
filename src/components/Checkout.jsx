@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatCurrency } from './utils';
 import Fade from 'react-reveal/Fade';
-import { deleteItem, saveItem, addBack } from '../actions/cartActions';
+import { deleteItem, saveItem, addBack, checkout } from '../actions/cartActions';
 
 // Add a button to the CartItems component that says "Proceed to checkout". Create a new page for your application. When a user clicks on the "Proceed to checkout" button, it navigates them to this page and shows a breakdown of their order, including a 8.25% sales tax. Use the image below as an example.
 
@@ -63,7 +63,7 @@ function Checkout() {
                 <br />
                 Total: {formatCurrency(subtotal + (subtotal * 0.0825))}
                 <br />
-                <button className="btn btn-primary"><Link to="/transaction_successful" style={{textDecoration: "none", color: "white"}}>Checkout</Link></button>
+                <button className="btn btn-primary" onClick={() => dispatch(checkout())}><Link to="/transaction_successful" style={{textDecoration: "none", color: "white"}}>Checkout</Link></button>
             </div>
         
         </div>

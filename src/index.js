@@ -9,6 +9,7 @@ import BaseLayout from './components/layout/BaseLayout';
 import Products from './components/Products';
 import ItemDetail from './components/ItemDetail';
 import Checkout from './components/Checkout';
+import Success from './components/Success';
 import rootReducer from './reducers';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route path="/products" element={<Products />}/>
           <Route path="/products/details/:id" element={<ItemDetail />}/>
           <Route path="/checkout" element={<Checkout />}/>
+          <Route path="/transaction_successful" element={<Success />}/>
         </Routes>
       </BaseLayout>
     </Router>

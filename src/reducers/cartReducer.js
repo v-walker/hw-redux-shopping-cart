@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_ITEM, SAVE_FOR_LATER, ADD_FROM_SAVE } from "../actions/types";
+import { ADD_TO_CART, DELETE_ITEM, SAVE_FOR_LATER, ADD_FROM_SAVE, CHECKOUT } from "../actions/types";
 
 const cartReducer = (state, action) => {
     
@@ -60,6 +60,14 @@ const cartReducer = (state, action) => {
                 numberOfItems: state.numberOfItems + 1,
                 totalCost: state.totalCost + parseFloat(action.product.price),
                 savedItems: state.savedItems.filter(item => item.id !== action.product.id)
+            }
+        
+        case CHECKOUT:
+            return {
+                ...state,
+                cartItems: [],
+                numberOfItems: 0,
+                totalCost: parseFloat(0.00)
             }
 
         default:

@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_ITEM, SAVE_FOR_LATER, ADD_FROM_SAVE } from "./types";
+import { ADD_TO_CART, DELETE_ITEM, SAVE_FOR_LATER, ADD_FROM_SAVE, CHECKOUT } from "./types";
 
 const addToCart = (item) => {
     
@@ -29,4 +29,10 @@ const addBack = (product) => {
     }
 }
 
-export { addToCart, deleteItem, saveItem, addBack };
+const checkout = () => {
+    return {
+        type: CHECKOUT
+    }
+}
+
+export { addToCart, deleteItem, saveItem, addBack, checkout };
